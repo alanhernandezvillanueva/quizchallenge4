@@ -1,4 +1,12 @@
-var questionTextEl = document.querySelector("#questionText");
+var startGame = document.querySelector("#start-game");
+var questionContainerEl = document.querySelector("#question-info");
+var questionText = document.querySelector("#question-text");
+var buttonDivEl = document.querySelector("#button-div");
+var correctAnswer = document.querySelector(".question-wrapper")
+
+
+
+
 
   
 
@@ -31,21 +39,84 @@ var questionsArray = [
 
 ];
 
-
-
-
-
 var round = 0;
 
-questionTextEl.addEventListener("click", function(){
-    questionTextEl.innerHTML = questionsArray[round].question;
+startGame.addEventListener("click", function(){
+    buttonDivEl.innerHTML = "";
+    questionText.innerHTML = questionsArray[round].question;
+    questionContainerEl.innerHTML = "";
     for (var i =0; i < questionsArray[round].answerChoices.length; i++){
+       
         var buttonEl = document.createElement("button")
+        buttonEl.addEventListener("click", buttonListener)
         buttonEl.innerHTML = questionsArray[round].answerChoices[i]; 
-        questionTextEl.append(buttonEl);
+        questionContainerEl.append(buttonEl);
+       buttonEl.setAttribute("style", "background:purple");
     }
-    round++;
-});
-var correctAnswer = {
 
-}
+});
+
+
+var buttonListener = function(event) {
+
+    if (event.target.textContent === questionsArray[round].answer) {
+        window.alert("Correct!");
+        
+    } else {
+       window.alert("wrong");
+    }
+
+    round++;
+
+    if (questionsArray.length === round ) {
+        endOfQuizz();
+    } else {
+            //move to next question
+        questionText.innerHTML = questionsArray[round].question;
+        questionContainerEl.innerHTML = "";
+        for (var i =0; i < questionsArray[round].answerChoices.length; i++){
+            
+            var buttonEl = document.createElement("button")
+            buttonEl.addEventListener("click", buttonListener)
+            buttonEl.innerHTML = questionsArray[round].answerChoices[i]; 
+            questionContainerEl.append(buttonEl);
+            buttonEl.setAttribute("style", "background:purple");
+    
+        } 
+    }
+ 
+   
+    console.log(round);
+  
+
+
+   
+
+};
+
+var scorePoints = function(){
+    //create a condition that awards points for every correct answer
+    
+    }
+
+
+
+
+
+var endOfQuizz = function() {
+    window.alert("The Quizz Is Finished, Let See How You Did");
+
+    var newScore = function() {
+
+    }
+  
+   
+    var newHighScore = localStorage.getItem("newScore");
+    if(newHighScore === null){
+      newHighScore = 0;
+    } else {
+        window.prompt("We Have a New Record")
+    }
+  
+};
+  
