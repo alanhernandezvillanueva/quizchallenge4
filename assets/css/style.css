@@ -1,15 +1,49 @@
- #button-div, #question-text {
-    
-        display: flex;
-        justify-content: center;
-        font-size: 30px;
-    
-    
+body{
+    background-color: aqua;
 }
-#question-info  {
+#start-game {
+    border-radius: 10px;
+    background-color: rgb(87, 87, 194);
+    font-size: 35px;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-   font-size: 40px;
+  align-items: center;
+  justify-content: center;
 }
+#timer {
+    font-size: 30px;
+    color: blue;
+    display: flex;
+    justify-content: flex-end;
+   margin-right: 20px;
+}
+#button-div {
    
+    
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+    
+}
+#question-text{
+    font-size: 35px;
+    display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+}
+#question-wrapper {
+    display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ flex-direction: column;
+    
+}
+#question-info{
+display: flex;
+ justify-content: space-evenly;
+ flex-direction: row;
+font-size: 40px;
+    
+}
+button {
+    border-radius: 10px;
+}

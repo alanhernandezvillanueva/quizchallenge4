@@ -7,7 +7,7 @@ var correctAnswer = document.querySelector(".question-wrapper")
 var timerEl = document.getElementById('timer');
 var timerLeft = 50;
 var finalScoreEl = document.getElementById("final-score");
- timerEl.innerHTML = timerLeft;
+ timerEl.innerHTML = "You Have " + timerLeft + " Seconds To Complete The Quizz";
  var score = 0;
 
 
@@ -52,7 +52,7 @@ startGame.addEventListener("click", function(){
     //timer goes here 
     if (timerLeft > 0 ) {
         timerLeft--; 
-         timerEl.innerHTML = "You Have Seconds " + timerLeft;
+         timerEl.innerHTML = "You Have " + timerLeft + " Seconds";
         } else{
             endOfQuizz();
             
@@ -70,7 +70,7 @@ startGame.addEventListener("click", function(){
         buttonEl.addEventListener("click", buttonListener)
         buttonEl.innerHTML = questionsArray[round].answerChoices[i]; 
         questionContainerEl.append(buttonEl);
-       buttonEl.setAttribute("style", "background:purple");
+       buttonEl.setAttribute("style", "background:purple", "border-radius:10px");
     }
 
 });
@@ -139,6 +139,7 @@ var endOfQuizz = function() {
        finalScoreEl.append(playerInitialsInput);
 
        var submitInitialsBtn = document.createElement("button");
+       submitInitialsBtn.setAttribute("style", "background:green");
        submitInitialsBtn.textContent = ("Save");
        finalScoreEl.append(submitInitialsBtn);
 
