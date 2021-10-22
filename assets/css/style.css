@@ -4,6 +4,7 @@
         justify-content: center;
         font-size: 30px;
     
+    
 }
 #question-info  {
     display: flex;
@@ -11,3 +12,4 @@
     flex-direction: column;
    font-size: 40px;
 }
+   
